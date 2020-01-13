@@ -15,6 +15,7 @@ public class Vote {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
 	private int vote;
 	
 	//user and link

@@ -15,7 +15,9 @@ public class Link {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
 	private String title;
+	
 	private String url;
 	
 	public Link(Long id, String title, String url) {
