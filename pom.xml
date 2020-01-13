@@ -22,19 +22,40 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   </parent>
   
   <dependencies>
+  <!-- 
+  	Brings in transitive dependency for logging.
+   -->
   	<dependency>
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-starter-web</artifactId>
   	</dependency>
   	
+  	
+  	<!--Dev Tools 
+  	Automatically turns off caching for the template engines.
+  		-Automatic Restart
+  			- re-start vs re-load
+  				- So we don't have to manually re-start when we make changes.
+  				- 
+  	 -->
   	<dependency>
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-devtools</artifactId>
   	</dependency>
   	
+  	<!-- 
+  		Actuator
+  			- /actuator/env
+  	 -->
   	<dependency>
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-starter-actuator</artifactId>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>org.springframework.boot</groupId>
+  		<artifactId>spring-boot-configuration-processor</artifactId>
+  		<optional>true</optional>
   	</dependency>
   	
   	<dependency>

@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "name": "springit",
+      "type": "com.example.springit.config.SpringitProperties",
+      "sourceType": "com.example.springit.config.SpringitProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "springit.welcome-msg",
+      "type": "java.lang.String",
+      "description": "This our welcome message.",
+      "sourceType": "com.example.springit.config.SpringitProperties"
+    }
+  ],
+  "hints": []
+}
