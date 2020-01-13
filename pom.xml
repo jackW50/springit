@@ -58,6 +58,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   		<optional>true</optional>
   	</dependency>
   	
+  	<!-- 
+  		Java Persistence API
+  			- An interface specification that describes 
+  			The management of relational data in applications using Java
+  			- javax.persistence Package contains the main API.
+  			-JPQL=Java Persistence Query Language.
+  			- Object relational metadata
+  		Spring Data
+  			- To provide a familiar and consistent programming model for data access across the board.
+  			- Contains a ton of modules.
+  			- Contains the JPA specification.
+  				-Uses hibernate under the hood. The starters help us get going right away.
+  	 	
+  	 -->
   	<dependency>
   		<groupId>org.springframework.boot</groupId>
   		<artifactId>spring-boot-starter-data-jpa</artifactId>
