@@ -13,5 +13,6 @@ public class AppDriver {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AppDriver.class, args);
+		System.out.println("Welome to Springit");
 	}
 }
