@@ -48,6 +48,8 @@ public class AppDriver {
 			commentRepository.save(comment);
 			link.addComment(comment);
 			
+			Link firstLink = linkRepository.findByTitle("Getting Started with Spring 2");
+			System.out.println(firstLink.getTitle());
 		};
 	}
 }
