@@ -12,8 +12,13 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import com.example.springit.config.SpringitProperties;
+import com.example.springit.domain.Comment;
+import com.example.springit.domain.Link;
+import com.example.springit.repository.CommentRepository;
+import com.example.springit.repository.LinkRepository;
 
 /*
  * @SpringBootConfiguration
@@ -22,15 +27,10 @@ import com.example.springit.config.SpringitProperties;
  */
 @SpringBootApplication
 @EnableConfigurationProperties(SpringitProperties.class)
+@EnableJpaAuditing 
 public class AppDriver {
 	
 	private static final Logger log = LoggerFactory.getLogger(SpringApplication.class);
-	
-	@Autowired
-	private SpringitProperties springitProperties;
-	
-	@Autowired
-	private ApplicationContext applicationContext;
 
 	public static void main(String[] args) {
 		SpringApplication.run(AppDriver.class, args);
@@ -39,14 +39,14 @@ public class AppDriver {
 	}
 	
 	@Bean 
-	@Profile("dev")
-	CommandLineRunner runner() {
+	CommandLineRunner runner(LinkRepository linkRepository, CommentRepository commentRepository) {
 		return args -> {
-			System.out.println("Printing all bean names in the application context.");
-			System.out.println("---------------------------------------------");
-			String[] beans = applicationContext.getBeanDefinitionNames();
-			Arrays.sort(beans);
-			log.error("CommandLineRunner.run()");
+			Link link = new Link("Getting Started with Spring 2", "https://therealdanvega.com/spring-boot-2");
+			linkRepository.save(link);
+			
+			Comment comment = new Comment("This Spring Boot 2 link is awesome", link);
+			commentRepository.save(comment);
+			link.addComment(comment);
 			
 		};
 	}
