@@ -20,6 +20,8 @@ import com.example.springit.domain.Link;
 import com.example.springit.repository.CommentRepository;
 import com.example.springit.repository.LinkRepository;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 /*
  * @SpringBootConfiguration
  * @EnableAutoConfiguration
@@ -28,6 +30,7 @@ import com.example.springit.repository.LinkRepository;
 @SpringBootApplication
 @EnableConfigurationProperties(SpringitProperties.class)
 @EnableJpaAuditing 
+@EnableSwagger2 
 public class AppDriver {
 	
 	private static final Logger log = LoggerFactory.getLogger(SpringApplication.class);
