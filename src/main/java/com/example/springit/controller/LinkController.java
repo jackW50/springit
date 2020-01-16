@@ -28,11 +28,7 @@ public class LinkController {
 //		this.linkRepository = linkRepository;
 //	}
 //	
-	@GetMapping("/foo")
-	public String foo(Model model) {
-		model.addAttribute("pageTitle", "This page is FOO!");
-		return "foo";
-	}
+
 //	
 //	//list
 //	@GetMapping("/")
