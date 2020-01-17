@@ -21,20 +21,22 @@ import com.example.springit.repository.LinkRepository;
 @Controller
 public class LinkController {
 	
-//	private LinkRepository linkRepository;
-//	
-//	@Autowired
-//	public LinkController(LinkRepository linkRepository) {
-//		this.linkRepository = linkRepository;
-//	}
-//	
+	private LinkRepository linkRepository;
+	
+	@Autowired
+	public LinkController(LinkRepository linkRepository) {
+		this.linkRepository = linkRepository;
+	}
+	
 
 //	
-//	//list
-//	@GetMapping("/")
-//	public List<Link> list() {
-//		return linkRepository.findAll();
-//	}
+	//list
+	@GetMapping("/")
+	public String list(Model model) {
+		model.addAttribute("links", linkRepository.findAll());
+		
+		return "link/index";
+	}
 //	
 //	//CRUD
 //	@PostMapping("/create")
