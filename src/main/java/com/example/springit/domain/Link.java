@@ -12,7 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
+import org.hibernate.validator.constraints.URL;
 import org.ocpsoft.prettytime.PrettyTime;
 
 import com.example.springit.service.BeanUtil;
@@ -32,12 +34,16 @@ import lombok.ToString;
 @ToString
 public class Link extends Auditable {
 
-	@Id
-	@GeneratedValue
+	@Id @GeneratedValue
 	private Long id;
+	
 	@NonNull
+	@NotEmpty(message = "Please enter a title.")
 	private String title;
+	
 	@NonNull
+	@NotEmpty(message = "Please enter a url.")
+	@URL(message = "Please enter a valid url")
 	private String url;
 	
 	@OneToMany(mappedBy = "link")
